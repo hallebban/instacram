@@ -10,7 +10,8 @@ class FollowersController < ApplicationController
   end
 
   def index
-    @followers = Follower.page(params[:page]).per(10)
+    @q = Follower.ransack(params[:q])
+    @followers = @q.result(:distinct => true).includes(:sender, :recipient).page(params[:page]).per(10)
 
     render("followers/index.html.erb")
   end
