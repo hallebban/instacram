@@ -17,7 +17,7 @@
       <% @followers.each do |follower| %>
       <tr>
         <td><%= follower.sender.email %></td>
-        <td><%= follower.recipient_id %></td>
+        <td><%= follower.recipient.email %></td>
         <td>
           <a href="/followers/<%= follower.id %>" class="btn btn-primary">Show</a>
           <a href="/followers/<%= follower.id %>/edit" class="btn btn-warning">Edit</a>
