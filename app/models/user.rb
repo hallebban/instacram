@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :timeline,
+             :through => :leaders,
+             :source => :uploads
+
   has_many   :subscribers,
              :through => :received_follower_requests,
              :source => :sender
