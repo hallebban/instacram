@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Followers
+    <a href="/followers/new" class="btn btn-lg btn-success">New Follower</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Sender</th>
+        <th>Recipient</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @followers.each do |follower| %>
+      <tr>
+        <td><%= follower.sender_id %></td>
+        <td><%= follower.recipient_id %></td>
+        <td>
+          <a href="/followers/<%= follower.id %>" class="btn btn-primary">Show</a>
+          <a href="/followers/<%= follower.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_follower/<%= follower.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
