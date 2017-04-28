@@ -19,6 +19,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :subscribers,
+             :through => :received_follower_requests,
+             :source => :sender
+
+  has_many   :leaders,
+             :through => :followers,
+             :source => :recipient
+
   has_many   :favorites,
              :through => :likes,
              :source => :photo
